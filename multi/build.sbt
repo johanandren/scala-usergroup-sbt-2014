@@ -1,3 +1,6 @@
+import com.typesafe.sbt.SbtNativePackager._
+import NativePackagerKeys._
+
 scalaVersion := "2.11.2"
 
 name := "bananas"
@@ -12,5 +15,7 @@ lazy val common = (
 lazy val app = (
   Project("bananas-app", file("app"))
   dependsOn(common)
-  settings()
+  settings(
+    packageArchetype.java_application: _*
+  )
 )
