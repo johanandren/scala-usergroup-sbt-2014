@@ -7,15 +7,14 @@ name := "bananas"
 
 organization in Global := "spectre"
 
-lazy val common = (
+lazy val common = 
   Project("bananas-common", file("common"))
-  settings()
-)
+    .settings()
 
-lazy val app = (
+
+lazy val app = 
   Project("bananas-app", file("app"))
-  dependsOn(common)
-  settings(
-    packageArchetype.java_application: _*
-  )
-)
+    .dependsOn(common)
+    .settings(
+      packageArchetype.java_application: _*
+    )
